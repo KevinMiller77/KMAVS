@@ -4,5 +4,10 @@ This algorithm visualizer was created purely to discover a bit about the python 
 
 Currently Has
 
-* No algorithms
+Array Based Algorithms
+* Merge Sort
 * Thanks for coming
+
+Grid Based Algorithms
+
+Graph Based Algorithms

@@ -3,12 +3,15 @@ import OpenGL.GL as gl
 import imgui
 from imgui.integrations.glfw import GlfwRenderer
 
+from sorter import SorterWidget
+
 def main():
     imgui.create_context()
     window = glfw_init()
     impl = GlfwRenderer(window)
     lastFrameTime = glfw.get_time()
 
+    sorter = SorterWidget()
 
     while not glfw.window_should_close(window):
         glfw.poll_events()
@@ -26,10 +29,9 @@ def main():
         imgui.set_next_window_position(0, 0)
         imgui.set_next_window_size(win_w, win_h)
         imgui.begin("Viewport", False, imgui.WINDOW_NO_TITLE_BAR)
-        
-        imgui.text("Hello Dear, Imgui!")
-        imgui.text("... the python one")
 
+        sorter.draw(dt)
+        
         imgui.end()
 
         gl.glClearColor(.3, .3, .3, 1)

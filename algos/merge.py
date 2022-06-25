@@ -2,14 +2,12 @@ import random
 import imgui
 from array import array
 
-from imgui_helpers import centered_float_slider, centered_text
+from imgui_helpers import *
 
 class MergeSorter:
     def __init__(self, items: list = []):
         
         # Keyframe/Ani info 
-        self.step = 0.5
-        self.time_since_step = 0
         self.keyframes = []
         self.cur_frame = 0
 
@@ -46,36 +44,10 @@ class MergeSorter:
         self.__init__()
 
     def draw(self, dt):
-
-        self.time_since_step = self.time_since_step + dt
-
-        if(self.step != 0 and self.time_since_step >  1 / self.step):
-            self.frame_step()
-            self.time_since_step = 0
-
-        
-        self.step = centered_float_slider(self.step, 0, 1000)
-        imgui.same_line()
-
-        # Buttons next to each other
-        if imgui.button("Step"):
-            self.frame_step()
-        imgui.same_line()
-
-        if imgui.button("Reset"):
-            self.reset()
-        imgui.same_line()
-
-        if imgui.button("New List"):
-            self.new_set()
-
-        imgui.spacing()
-
         cr = imgui.core.get_window_content_region_max()
         h = cr.y - imgui.core.get_cursor_pos().y - 15 # 15 is nice breathe room
 
         imgui.plot_histogram("", self.display, graph_size = (cr.x, h))  
-
 
 
     # Algorithm things here

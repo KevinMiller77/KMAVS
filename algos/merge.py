@@ -1,10 +1,11 @@
 import random
 import imgui
 from array import array
+from algos.algo_base import AlgoBase
 
-from imgui_helpers import *
+from utils.imgui_helpers import *
 
-class MergeSorter:
+class MergeSorter(AlgoBase):
     def __init__(self, items: list = []):
         
         # Keyframe/Ani info 

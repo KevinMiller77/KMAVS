@@ -1,6 +1,6 @@
 import imgui
 from algos.algos import algos_map
-from imgui_helpers import centered_float_slider, centered_text
+from utils.imgui_helpers import centered_float_slider, centered_text
 
 class SorterWidget:
     def __init__(self):

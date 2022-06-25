@@ -3,7 +3,7 @@ import OpenGL.GL as gl
 import imgui
 from imgui.integrations.glfw import GlfwRenderer
 
-from sorter import SorterWidget
+from widgets.sorter import SorterWidget
 
 def main():
     imgui.create_context()
